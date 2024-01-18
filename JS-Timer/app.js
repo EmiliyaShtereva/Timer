@@ -15,10 +15,24 @@ startBtn.addEventListener('click', startHandler);
 function startHandler() {
     time = hours + minutes + seconds;
 
+    if (time === 0) return;
+
     interval = setInterval(() => {
         time--;
         hours = Math.floor(time / 3600);
         minutes = Math.floor((time / 3600) * 60) % 60;
         seconds = time % 60;
+
+        if (time === 0) {
+            stopHandler();
+        }
+
     }, 1000);
+
 }
+
+function stopHandler() {
+    clearInterval(interval);
+    interval = null;
+}
+
