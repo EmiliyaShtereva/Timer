@@ -29,10 +29,25 @@ function startHandler() {
 
     }, 1000);
 
+    updateClass();
 }
 
 function stopHandler() {
     clearInterval(interval);
     interval = null;
+    updateClass();
 }
 
+}
+
+function updateClass() {
+    if (interval === null) {
+        startBtn.innerText = 'Start';
+        startBtn.classList.add('start');
+        startBtn.classList.remove('pause');
+    } else {
+        startBtn.innerText = 'Pause';
+        startBtn.classList.add('pause');
+        startBtn.classList.remove('start');
+    }
+}
