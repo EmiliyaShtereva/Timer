@@ -11,26 +11,26 @@ let minutes = Number(minutesEl.innerText) * 60;
 let seconds = Number(secondsEl.innerText);
 
 startBtn.addEventListener('click', startHandler);
+timeBtn.addEventListener('click', newTimeHandler);
 
 function startHandler() {
     time = hours + minutes + seconds;
 
-    if (time === 0) return;
+    if (interval === null) {
+        if (time === 0) return;
 
-    interval = setInterval(() => {
-        time--;
-        hours = Math.floor(time / 3600);
-        minutes = Math.floor((time / 3600) * 60) % 60;
-        seconds = time % 60;
-        updateTime();
-
-        if (time === 0) {
-            stopHandler();
-        }
-
-    }, 1000);
-
-    updateClass();
+        interval = setInterval(() => {
+            time--;
+            updateTime();
+    
+            if (time === 0) stopHandler();
+    
+        }, 1000);
+    
+        updateClass();
+    } else {
+        stopHandler();
+    }
 }
 
 function stopHandler() {
@@ -59,4 +59,8 @@ function updateClass() {
         startBtn.classList.add('pause');
         startBtn.classList.remove('start');
     }
+}
+
+function newTimeHandler() {
+    
 }
