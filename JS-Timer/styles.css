@@ -1,0 +1,73 @@
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    height: 100vh;
+    font-family: Optima, Segoe, Segoe UI, Candara, Calibri, Arial, sans-serif;
+    background: linear-gradient(to bottom right, #603F83FF, #C7D3D4FF);
+    background-repeat: no-repeat;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.conteiner {
+    background: linear-gradient(#A2A2A1FF, #F1F4FFFF);
+    box-shadow: 0 4px 10px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    width: 800px;
+    height: 450px;
+    padding: 80px 70px;
+}
+
+.timer {
+    background: linear-gradient(to bottom right, rgb(57, 38, 77), rgb(90, 96, 96));
+    box-shadow: 0 10px 10px 0 rgba(0, 0, 0, 0.2), 0 20px 20px 0 rgba(0, 0, 0, 0.19);
+    height: 250px;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+}
+
+#hours, #minutes, #seconds {
+    color: #F1F4FFFF;
+    font-size: 100px;
+    font-weight: lighter;
+}
+
+.seperation {
+    color: rgb(241, 244, 255, 0.3);
+    font-size: 70px;
+    font-weight: lighter;
+}
+
+p {
+    float: right;
+    color: rgb(241, 244, 255, 0.3);
+    font-size: 20px;
+    font-weight: lighter;
+}
+
+.buttons {
+    padding: 30px 50px;
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-evenly;
+}
+
+button {
+    padding: 20px;
+    font-size: 25px;
+    font-weight: bold;
+    color: rgb(57, 38, 77);
+    border: none;
+    background-color: transparent;
+}
+
+button:hover {
+    box-shadow: 0 4px 10px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
