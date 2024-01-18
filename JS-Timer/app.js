@@ -22,6 +22,7 @@ function startHandler() {
         hours = Math.floor(time / 3600);
         minutes = Math.floor((time / 3600) * 60) % 60;
         seconds = time % 60;
+        updateTime();
 
         if (time === 0) {
             stopHandler();
@@ -38,6 +39,14 @@ function stopHandler() {
     updateClass();
 }
 
+function updateTime() {
+    hours = Math.floor(time / 3600);
+    minutes = Math.floor((time / 3600) * 60) % 60;
+    seconds = time % 60;
+
+    hoursEl.innerText = hours.toString().padStart(2, '0');
+    minutesEl.innerText = minutes.toString().padStart(2, '0');
+    secondsEl.innerText = seconds.toString().padStart(2, '0');
 }
 
 function updateClass() {
