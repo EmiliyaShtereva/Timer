@@ -97,6 +97,8 @@ function submitHandler(e) {
     minutesEl.innerText = minutes.toString().padStart(2, '0');
     secondsEl.innerText = seconds.toString().padStart(2, '0');
 
+    form.reset();
+
     formConteiner.style.display = 'none';
     conteiner.style.display = 'inline';
 }
