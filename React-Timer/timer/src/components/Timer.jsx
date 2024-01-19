@@ -3,9 +3,9 @@ import styles from './Timer.module.css'
 import formatTime from '../utils/formatTime';
 import { useNavigate } from 'react-router-dom';
 
-export default function Timer({changeComponent}) {
-    let [time, setTime] = useState(186);
-    let [paused, setPaused] = useState(false);
+export default function Timer({newTime}) {
+    let [time, setTime] = useState(newTime);
+    let [paused, setPaused] = useState(true);
     let interval = null;
     const navigate = useNavigate();
 
@@ -15,24 +15,24 @@ export default function Timer({changeComponent}) {
             setTime(oldTime => oldTime - 1);
         }, 1000);
         return () => stopHandler();
-    }, [time]);
+    }, [time, newTime]);
 
     useEffect(() => {
         if (time <= 0) stopHandler();
-    }, [time]);
+    }, [time, newTime]);
 
-    let controltHandler = () => {
+    const controltHandler = () => {
         if (interval === null && time > 0) {
             setPaused(false);
             setTime(oldTime => oldTime - 1);
         } else {
-            setPaused(true)
             stopHandler();
         }
     }
 
-    let stopHandler = () => {
+    const stopHandler = () => {
         clearInterval(interval);
+        setPaused(true)
         interval = null;
     }
 

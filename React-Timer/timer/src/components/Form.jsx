@@ -1,11 +1,36 @@
+import { useState } from 'react';
 import styles from './Form.module.css'
+import { useNavigate } from 'react-router-dom';
 
-export default function Form() {
+const formInitialState = {
+    hours: '',
+    minutes: '',
+    seconds: '',
+}
+
+export default function Form({changeTime}) {
+    const [formValues, setFormValues] = useState(formInitialState);
+    const navigate = useNavigate();
+
+    const changeHandler = (e) => {
+        setFormValues(state => ({
+            ...state,
+            [e.target.name]: Number(e.target.value),
+        }));
+    }
+
+    const submitHandler = (e) => {
+        e.preventDefault();
+        let time = (formValues.hours * 3600) + (formValues.minutes * 60) + formValues.seconds;
+        changeTime(time);
+        navigate('/')
+    }
+
   return (
     <>
       <div className={styles["form"]}>
         <h1>Update Time</h1>
-        <form>
+        <form onSubmit={submitHandler}>
             <div className={styles["wrapper"]}>
                 <div className={styles["time"]}>
                     <p>HOURS</p>
@@ -17,6 +42,8 @@ export default function Form() {
                         name="hours" 
                         className={styles["hours"]} 
                         placeholder="00"
+                        value={formValues.hours}
+                        onChange={changeHandler}
                     />
                 </div>
 
@@ -34,6 +61,8 @@ export default function Form() {
                         name="minutes" 
                         className={styles["minutes"]}
                         placeholder="00"
+                        value={formValues.minutes}
+                        onChange={changeHandler}
                     />
                 </div>
 
@@ -51,6 +80,8 @@ export default function Form() {
                         name="seconds" 
                         className={styles["seconds"]}
                         placeholder="00"
+                        value={formValues.seconds}
+                        onChange={changeHandler}
                     />
                 </div>
             </div>
