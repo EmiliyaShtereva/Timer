@@ -14,8 +14,9 @@ const formatTime = (time) => {
 }
 
 function App() {
-    let interval = null;
     let [time, setTime] = useState(186);
+    let [paused, setPaused] = useState(false);
+    let interval = null;
 
     useEffect(() => {
         interval = setInterval(() => {
@@ -29,9 +30,11 @@ function App() {
     }, [time]);
 
     let controltHandler = () => {
-        if (interval === null) {
+        if (interval === null && time > 0) {
+            setPaused(true);
             setTime(oldTime => oldTime - 1);
         } else {
+            setPaused(false)
             stopHandler();
         }
     }
@@ -70,7 +73,7 @@ function App() {
         </div>
 
         <div className={styles["buttons"]}>
-          <button className={styles["control-btn"]} onClick={controltHandler}>Start</button>
+          <button className={styles["control-btn"]} onClick={controltHandler}>{paused ? 'Paused' : 'Start'}</button>
           <button className={styles["time-btn"]}>Select Time</button>
         </div>
       </div>
