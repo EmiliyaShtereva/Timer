@@ -1,11 +1,13 @@
 import { useEffect, useState } from 'react'
 import styles from './Timer.module.css'
 import formatTime from '../utils/formatTime';
+import { useNavigate } from 'react-router-dom';
 
 export default function Timer({changeComponent}) {
     let [time, setTime] = useState(186);
     let [paused, setPaused] = useState(false);
     let interval = null;
+    const navigate = useNavigate();
 
     useEffect(() => {
         setPaused(false);
@@ -64,7 +66,7 @@ export default function Timer({changeComponent}) {
 
         <div className={styles["buttons"]}>
           <button className={styles["control-btn"]} onClick={controltHandler}>{paused ? 'Start' : 'Pause'}</button>
-          <button className={styles["time-btn"]}>Select Time</button>
+          <button className={styles["time-btn"]} onClick={() => navigate('/form')}>Select Time</button>
         </div>
       </div>
     </>
