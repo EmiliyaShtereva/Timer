@@ -4,18 +4,16 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="styles/styles.css">
     <title>Timer</title>
 </head>
 
 <body>
     <div class="conteiner">
-
         <div class="timer">
-
             <div class="time">
                 <p>HOURS</p>
-                <h2 id="hours">50</h2>
+                <h2 id="hours">00</h2>
             </div>
 
             <div class="time">
@@ -24,7 +22,7 @@
 
             <div class="time">
                 <p>MINUTES</p>
-                <h2 id="minutes">38</h2>
+                <h2 id="minutes">00</h2>
             </div>
 
             <div class="time">
@@ -33,17 +31,71 @@
 
             <div class="time">
                 <p>SECONDS</p>
-                <h2 id="seconds">19</h2>
+                <h2 id="seconds">00</h2>
             </div>
-
         </div>
 
         <div class="buttons">
             <button class="control-btn start">Start</button>
             <button class="time-btn">Select Time</button>
         </div>
-
     </div>
+    
+    <div class="form">
+        <h1>Update Time</h1>
+        <form>
+            <div class="wrapper">
+                <div class="time">
+                    <p>HOURS</p>
+                    <input 
+                        type="number" 
+                        min="0" 
+                        max="99" 
+                        maxlength="2"
+                        name="hours" 
+                        class="hours" 
+                        placeholder="00"
+                    />
+                </div>
+
+                <div class="time">
+                    <h2 class="seperation">:</h2>
+                </div>
+
+                <div class="time">
+                    <p>MINUTES</p>
+                    <input 
+                        type="number" 
+                        min="0" 
+                        max="59" 
+                        maxlength="2"
+                        name="minutes" 
+                        class="minutes"
+                        placeholder="00"
+                    />
+                </div>
+
+                <div class="time">
+                    <h2 class="seperation">:</h2>
+                </div>
+
+                <div class="time">
+                    <p>SECONDS</p>
+                    <input 
+                        type="number" 
+                        min="0" 
+                        max="59" 
+                        maxlength="2"
+                        name="seconds" 
+                        class="seconds"
+                        placeholder="00"
+                    />
+                </div>
+            </div>
+            <button type="submit" class="submit-btn">New Time</button>
+        </form>
+    </div>
+
     <script src="app.js"></script>
 </body>
 
