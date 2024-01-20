@@ -1,40 +1,30 @@
 import { useEffect, useState } from 'react'
 import styles from './Timer.module.css'
-import formatTime from '../utils/formatTime';
 import { useNavigate } from 'react-router-dom';
+import formatTime from '../../utils/formatTime';
 
-export default function Timer({newTime}) {
-    let [time, setTime] = useState(newTime);
-    let [paused, setPaused] = useState(true);
-    let interval = null;
-    const navigate = useNavigate();
+export default function Timer({ newTime }) {
+  let [time, setTime] = useState(newTime);
+  let [isRunning, setIsRunning] = useState(false);
+  const navigate = useNavigate();
+  let interval;
 
-    useEffect(() => {
-        setPaused(false);
-        interval = setInterval(() => {
-            setTime(oldTime => oldTime - 1);
-        }, 1000);
-        return () => stopHandler();
-    }, [time, newTime]);
-
-    useEffect(() => {
-        if (time <= 0) stopHandler();
-    }, [time, newTime]);
-
-    const controltHandler = () => {
-        if (interval === null && time > 0) {
-            setPaused(false);
-            setTime(oldTime => oldTime - 1);
-        } else {
-            stopHandler();
-        }
+  useEffect(() => {
+    if (isRunning && time > 0) {
+      interval = setInterval(() => {
+        setTime(oldTime => oldTime - 1);
+      }, 1000);
     }
+    return () => clearInterval(interval);
+  }, [isRunning]);
 
-    const stopHandler = () => {
-        clearInterval(interval);
-        setPaused(true)
-        interval = null;
-    }
+  useEffect(() => {
+    if (time <= 0) {
+      clearInterval(interval);
+      setIsRunning(false);
+    };
+  }, [time]);
+
 
   return (
     <>
@@ -65,7 +55,10 @@ export default function Timer({newTime}) {
         </div>
 
         <div className={styles["buttons"]}>
-          <button className={styles["control-btn"]} onClick={controltHandler}>{paused ? 'Start' : 'Pause'}</button>
+          {isRunning
+            ? (<button className={styles["control-btn"]} onClick={() => setIsRunning(false)}>Pause</button>)
+            : (<button className={styles["control-btn"]} onClick={() => setIsRunning(true)}>Start</button>)
+          }
           <button className={styles["time-btn"]} onClick={() => navigate('/form')}>Select Time</button>
         </div>
       </div>

@@ -38,7 +38,7 @@ export default function Form({changeTime}) {
                         type="number" 
                         min="0" 
                         max="99" 
-                        maxlength="2"
+                        maxLength="2"
                         name="hours" 
                         className={styles["hours"]} 
                         placeholder="00"
@@ -57,7 +57,7 @@ export default function Form({changeTime}) {
                         type="number" 
                         min="0" 
                         max="59" 
-                        maxlength="2"
+                        maxLength="2"
                         name="minutes" 
                         className={styles["minutes"]}
                         placeholder="00"
@@ -76,7 +76,7 @@ export default function Form({changeTime}) {
                         type="number" 
                         min="0" 
                         max="59" 
-                        maxlength="2"
+                        maxLength="2"
                         name="seconds" 
                         className={styles["seconds"]}
                         placeholder="00"
