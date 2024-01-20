@@ -1,7 +1,7 @@
 import { Route, Routes } from "react-router-dom"
-import Form from "./components/Form"
-import Timer from "./components/Timer"
 import { useState } from "react"
+import Timer from "./components/timer/Timer";
+import Form from "./components/form/Form";
 
 function App() {
     let [newTime, setNewTime] = useState(0);
