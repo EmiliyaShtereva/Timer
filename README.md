@@ -8,9 +8,7 @@ This is a Timer made in both React and Vanilla JavaScript.
 
 - [Setup](#setup)
 - [Technologies Used](#technologies-used)
-- [Features](#features)
 - [Architecture and Directories](#architecture-and-directories)
-- [License](#license)
 
 ## Setup
 Download GitHub repo
@@ -31,10 +29,6 @@ There are no additional setups for this folder.
 - [JavaScript](https://developer.mozilla.org/en-US/docs/Web/JavaScript)
 - [HTML](https://developer.mozilla.org/en-US/docs/Web/HTML) & [CSS](https://developer.mozilla.org/en-US/docs/Web/CSS)
 - [NPM](https://www.npmjs.com/)
-
-## Features
-- Home page - When the application first starts the user will be able to see the timer with a button for start and another button that navigates to form.
-- Form - On the form page the user can set the desired time for the timer
 
 ## Architecture and Directories
 ```
@@ -64,6 +58,3 @@ React-Timer
 ├── package.json: File that manages all the dependecies and contains script definitions.
 ├── vite.config.js: vite configuration
 ```
-## License
-
-This project is licensed under the MIT License - see the [LICENSE.md](https://github.com/EmiliyaShtereva/Manga-Store/blob/main/LICENSE) file for details.
