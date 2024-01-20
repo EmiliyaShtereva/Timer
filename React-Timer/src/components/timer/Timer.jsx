@@ -1,30 +1,11 @@
-import { useEffect, useState } from 'react'
 import styles from './Timer.module.css'
 import { useNavigate } from 'react-router-dom';
 import formatTime from '../../utils/formatTime';
+import useTimer from '../../hooks/useTimer';
 
 export default function Timer({ newTime }) {
-  let [time, setTime] = useState(newTime);
-  let [isRunning, setIsRunning] = useState(false);
+  let [time, isRunning, setIsRunning] = useTimer(newTime);
   const navigate = useNavigate();
-  let interval;
-
-  useEffect(() => {
-    if (isRunning && time > 0) {
-      interval = setInterval(() => {
-        setTime(oldTime => oldTime - 1);
-      }, 1000);
-    }
-    return () => clearInterval(interval);
-  }, [isRunning]);
-
-  useEffect(() => {
-    if (time <= 0) {
-      clearInterval(interval);
-      setIsRunning(false);
-    };
-  }, [time]);
-
 
   return (
     <>
@@ -55,7 +36,7 @@ export default function Timer({ newTime }) {
         </div>
 
         <div className={styles["buttons"]}>
-          {isRunning
+          {isRunning && time > 0
             ? (<button className={styles["control-btn"]} onClick={() => setIsRunning(false)}>Pause</button>)
             : (<button className={styles["control-btn"]} onClick={() => setIsRunning(true)}>Start</button>)
           }
