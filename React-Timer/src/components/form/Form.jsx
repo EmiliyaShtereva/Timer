@@ -44,6 +44,7 @@ export default function Form({changeTime}) {
                         placeholder="00"
                         value={formValues.hours}
                         onChange={changeHandler}
+                        data-testid='hoursInput'
                     />
                 </div>
 
@@ -63,6 +64,7 @@ export default function Form({changeTime}) {
                         placeholder="00"
                         value={formValues.minutes}
                         onChange={changeHandler}
+                        data-testid='minutesInput'
                     />
                 </div>
 
@@ -82,6 +84,7 @@ export default function Form({changeTime}) {
                         placeholder="00"
                         value={formValues.seconds}
                         onChange={changeHandler}
+                        data-testid='secondsInput'
                     />
                 </div>
             </div>
