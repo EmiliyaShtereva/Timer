@@ -13,7 +13,7 @@ export default function Timer({ newTime }) {
         <div className={styles["timer"]}>
           <div className={styles["time"]}>
             <p>HOURS</p>
-            <h2 id={styles["hours"]}>{formatTime(time).hours}</h2>
+            <h2 id={styles["hours"]} data-testid='hours'>{formatTime(time).hours}</h2>
           </div>
 
           <div className={styles["time"]}>
@@ -22,7 +22,7 @@ export default function Timer({ newTime }) {
 
           <div className={styles["time"]}>
             <p>MINUTES</p>
-            <h2 id={styles["minutes"]}>{formatTime(time).minutes}</h2>
+            <h2 id={styles["minutes"]} data-testid='minutes'>{formatTime(time).minutes}</h2>
           </div>
 
           <div className={styles["time"]}>
@@ -31,7 +31,7 @@ export default function Timer({ newTime }) {
 
           <div className={styles["time"]}>
             <p>SECONDS</p>
-            <h2 id={styles["seconds"]}>{formatTime(time).seconds}</h2>
+            <h2 id={styles["seconds"]} data-testid='seconds'>{formatTime(time).seconds}</h2>
           </div>
         </div>
 
